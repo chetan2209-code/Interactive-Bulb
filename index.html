@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Light Bulb</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="room">
+        <div class="bulb-container">
+            <div class="cord"></div>
+            <div id="bulb" class="bulb off">
+                <div class="filament"></div>
+            </div>
+        </div>
+        
+        <div class="controls">
+            <label class="switch">
+                <input type="checkbox" id="toggle">
+                <span class="slider"></span>
+            </label>
+            <p>Power Switch</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+
+
+
+<!-- ### How this works:
+1.  **The Glow:** Instead of just changing the background color, I used multiple layers of `box-shadow`. This mimics how light actually bleeds into the air (volumetric lighting).
+2.  **The Atmosphere:** I added a `light-on` class to the `body`. In real life, when you turn on a light, the shadows in the room shift and the walls become visible. Changing the background from `#1a1a1a` to `#2c2c2c` simulates this.
+3.  **The Filament:** The small rectangle inside the bulb glows independently, creating a realistic focal point of light.
+4.  **Transitions:** All color changes are wrapped in `transition: 0.3s ease`, which prevents the "flash" and makes it feel like a real incandescent bulb warming up. -->
