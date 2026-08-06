@@ -1,5 +1,5 @@
 # Interactive Light Bulb #
-An elegant, interactive web application featuring a glowing light bulb with a realistic smooth toggle switch effect. Built purely using semantic HTML5, CSS3, and Vanilla JavaScript
+An elegant, interactive web application featuring a glowing light bulb with a realistic smooth toggle switch effect. Built purely using semantic HTML5, CSS3, and Vanilla JavaScript. The Project demonstrates how JavaScript can be used to create dynamic interactions on a webpage.
 
 ## Features
 
