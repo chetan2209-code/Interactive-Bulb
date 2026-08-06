@@ -7,3 +7,5 @@ An elegant, interactive web application featuring a glowing light bulb with a re
 * **Realistic Glow Effect:** Uses advanced CSS `box-shadow` properties in simulate a warm white glow when the bulb is turned on.
 * **Dynamic Environment:** The background of the entire page dynamically shifts form a dark mode to a lighter ambient state.
 * **Pure Frontend:** Zero dependencies, lightweight, and fast loading.
+* Turn the light bulb ON/OFF with a button.
+* Instant response to user interaction.
