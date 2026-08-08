@@ -9,3 +9,8 @@ An elegant, interactive web application featuring a glowing light bulb with a re
 * **Pure Frontend:** Zero dependencies, lightweight, and fast loading.
 * Turn the light bulb ON/OFF with a button.
 * Instant response to user interaction.
+
+## Tech Stack Used
+* **HTML5**
+* **CSS3**
+* **JavaScript (ES6)**
