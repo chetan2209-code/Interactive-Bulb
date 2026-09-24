@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    background-color: #1a1a1a; /* Dark room */
+    background-color: #1a1a1a;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -10,21 +10,27 @@ body {
 }
 
 body.light-on {
-    background-color: #2c2c2c;
+    background: radial-gradient(circle at top center, #3a382c 0%, #1a1a1a 80%);
 }
 
 .room {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 100px;
+    gap: 80px;
+}
+
+.bulb-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
 }
 
 .cord {
     width: 4px;
     height: 100px;
     background: #333;
-    margin: 0 auto;
 }
 
 .bulb {
@@ -37,6 +43,19 @@ body.light-on {
     transition: all 0.3s ease;
     border: 2px solid #222;
     z-index: 2;
+}
+
+/* Bulb Base Cap */
+.bulb::before {
+    content: '';
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 12px;
+    background: linear-gradient(to right, #666, #999, #666);
+    border-radius: 4px 4px 0 0;
 }
 
 .filament {
@@ -52,7 +71,7 @@ body.light-on {
 }
 
 .bulb.on {
-    background: #fffae0; /* Warm white */
+    background: #fffae0;
     box-shadow: 
         0 0 20px #fff, 
         0 0 40px #ffeb3b, 
@@ -65,6 +84,62 @@ body.light-on {
     box-shadow: 0 0 10px #fff;
 }
 
+/* Pull Chain Corrected Positioning */
+.pull-chain {
+    position: absolute;
+    top: 170px;
+    left: calc(50% + 20px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    z-index: 3;
+    transform-origin: top center;
+    user-select: none;
+}
+
+.chain-line {
+    width: 2px;
+    height: 25px;
+    background: linear-gradient(to bottom, #888, #bbb);
+}
+
+.chain-bead {
+    width: 6px;
+    height: 6px;
+    background: radial-gradient(circle, #e0e0e0 30%, #777 100%);
+    border-radius: 50%;
+    margin-bottom: 2px;
+}
+
+.chain-handle {
+    width: 12px;
+    height: 18px;
+    background: linear-gradient(to bottom, #d4af37, #aa7c11);
+    border-radius: 4px 4px 8px 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+    margin-top: 2px;
+    transition: transform 0.1s ease;
+}
+
+.pull-chain:hover .chain-handle {
+    transform: scale(1.15);
+}
+
+/* Pull Bounce Keyframe Animation */
+@keyframes pullBounce {
+    0% { transform: translateY(0) scaleY(1); }
+    30% { transform: translateY(28px) scaleY(1.15); }
+    50% { transform: translateY(-8px) scaleY(0.92); }
+    70% { transform: translateY(4px) scaleY(1.03); }
+    100% { transform: translateY(0) scaleY(1); }
+}
+
+.pull-chain.pulling {
+    animation: pullBounce 0.55s cubic-bezier(0.36, 0.07, 0.19, 0.97);
+}
+
+/* Controls & Switch Styling */
 .controls {
     display: flex;
     flex-direction: column;
@@ -113,4 +188,20 @@ input:checked + .slider {
 
 input:checked + .slider:before {
     transform: translateX(26px);
+}
+/* Realistic Multi-Step Flicker Animation */
+@keyframes bulbFlicker {
+    0% { opacity: 0.2; box-shadow: none; }
+    15% { opacity: 1; box-shadow: 0 0 40px #ffeb3b, 0 0 80px #ffeb3b; }
+    30% { opacity: 0.3; box-shadow: none; }
+    45% { opacity: 0.9; box-shadow: 0 0 20px #fff, 0 0 60px #ffeb3b; }
+    60% { opacity: 0.4; box-shadow: none; }
+    75% { opacity: 1; box-shadow: 0 0 30px #fff, 0 0 70px #ffeb3b; }
+    85% { opacity: 0.6; box-shadow: 0 0 10px #fff; }
+    100% { opacity: 1; box-shadow: 0 0 20px #fff, 0 0 40px #ffeb3b, 0 0 80px #ffeb3b, 0 0 120px rgba(255, 235, 59, 0.4); }
+}
+
+/* Flicker class tab apply hogi jab bulb turn ON hoga */
+.bulb.flicker {
+    animation: bulbFlicker 0.4s ease-in-out;
 }
